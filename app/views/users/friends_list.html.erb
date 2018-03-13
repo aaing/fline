@@ -1,0 +1,8 @@
+<h2>友だちリスト</h2>
+<div class="row form user_profile">
+  <% @users.each do |user| %>
+  <% if user != current_user %>
+    <%= link_to user.name, user_path(user) %><hr>
+    <% end %>
+  <% end %>
+</div>

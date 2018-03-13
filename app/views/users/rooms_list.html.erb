@@ -1,0 +1,6 @@
+<h2>ルームリスト</h2>
+<div class="row form">
+  <% @rooms.each do |room| %>
+  <%= link_to room.key, room_path(room) %><hr>
+  <% end %>
+</div>

@@ -1,0 +1,20 @@
+<h2>ルームメンバーを選択し、ルーム名を決めてください</h2>
+<div class="row form user_profile">
+  <%= form_for @room do |f| %>
+    <%= hidden_field_tag 'user[id][]' %>
+  <% @users.each do |i| %>
+  <% if i == current_user or i.name.nil? %>
+    <% next %>
+    <% end %>
+    <p>
+      <%= "#{i.name}" =%>
+      <%= check_box_tag 'user[id][]', i.id, checked = false, :id => "user_#{i.id}" %>
+    </p><hr>
+  <% end %>
+  <div class='form-group'>
+  <%= f.label :ルーム名 %><br />
+  <%= f.text_field :key, placeholder: 'ルーム名を入力(必須)' ,class: 'form-control' %>
+  </div>
+  <%= submit_tag "ルーム作成" , { class: "btn btn-lg btn-primary withripple" } %>
+  <% end %>
+</div>
